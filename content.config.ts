@@ -85,6 +85,15 @@ export default defineContentConfig({
         date: z.date()
       })
     }),
+    // biography: defineCollection({
+    //   type: 'data',
+    //   source: 'biography/*.yml',
+    //   schema: z.object({
+    //     title: z.string().nonempty(),
+    //     description: z.string().nonempty(),
+    //     date: z.date()
+    //   })
+    // }),
     blog: defineCollection({
       type: 'page',
       source: 'blog/*.md',
@@ -104,6 +113,11 @@ export default defineContentConfig({
       schema: z.object({
         links: z.array(createButtonSchema())
       })
+    }),
+    biography: defineCollection({
+      type: 'page',
+      source: 'biography.md',
+      schema: createBaseSchema()
     }),
     speaking: defineCollection({
       type: 'page',

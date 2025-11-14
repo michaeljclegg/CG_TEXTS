@@ -33,12 +33,7 @@ useSeoMeta({
         links: 'justify-start'
       }"
     >
-      <UColorModeAvatar
-        class="sm:rotate-4 size-36 rounded-lg ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
-        :light="global.picture?.light!"
-        :dark="global.picture?.dark!"
-        :alt="global.picture?.alt!"
-      />
+   
     </UPageHero>
     <UPageSection
       :ui="{
@@ -49,12 +44,13 @@ useSeoMeta({
         :value="page.content"
         unwrap="p"
       />
-      <div class="flex flex-row justify-center items-center py-10 space-x-[-2rem]">
-        <PolaroidItem
+      <div class="flex flex-row justify-center items-center py-10 -space-x-8">
+        <NuxtImg
           v-for="(image, index) in page.images"
           :key="index"
-          :image="image"
-          :index
+          :src="image.src"
+          :alt="image.alt"
+          class="rounded-lg  max-w-sm"
         />
       </div>
     </UPageSection>
