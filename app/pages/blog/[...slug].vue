@@ -49,6 +49,23 @@ const formatDate = (dateString: string) => {
     day: 'numeric'
   })
 }
+
+// Type assertion for body property (markdown files have body property with toc)
+const pageWithBody = computed(() => page.value as typeof page.value & { 
+  body?: {
+    toc?: {
+      links?: Array<{ id: string; text: string; depth: number; children?: any[] }>
+    }
+  }
+})
+
+// Scroll to top function
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
 </script>
 
 <template>
@@ -112,6 +129,36 @@ const formatDate = (dateString: string) => {
           </div>
           <UContentSurround :surround />
         </UPageBody>
+        <template v-if="pageWithBody?.body?.toc?.links?.length" #right>
+          <UContentToc  
+            title=" " 
+           
+          color="primary"
+            :links="pageWithBody.body.toc.links"
+            :ui="{
+              link: 'text-xs',
+              linkText: 'text-xs'
+            }"
+          >
+            <template #top>
+              <button
+                @click="scrollToTop"
+                class="group relative text-xs font-semibold flex items-center justify-center focus-visible:outline-primary py-1 mt-4 text-neutral hover:text-neutral/80 transition-colors w-full cursor-pointer"
+              >
+                <UIcon name="lucide:arrow-up" class="size-3" />
+              </button>
+            </template>
+            <template #link="{ link }">
+              <a
+                :href="`#${link.id}`"
+                :title="link.text"
+                class="group relative text-xs flex items-center focus-visible:outline-primary py-1 text-neutral hover:text-neutral/80 transition-colors"
+              >
+                <span class="truncate">{{ link.text }}</span>
+              </a>
+            </template>
+          </UContentToc>
+        </template>
       </UPage>
     </UContainer>
   </UMain>
