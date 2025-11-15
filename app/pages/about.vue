@@ -12,6 +12,18 @@ if (!page.value) {
 
 const { global } = useAppConfig()
 
+// Extract URL from markdown link format [text](url)
+const extractUrl = (markdownLink: string): string => {
+  const match = markdownLink.match(/\[.*?\]\((.*?)\)/)
+  return (match && match[1]) ? match[1] : '#'
+}
+
+// Extract text from markdown link format [text](url)
+const extractText = (markdownLink: string): string => {
+  const match = markdownLink.match(/\[(.*?)\]/)
+  return (match && match[1]) ? match[1] : markdownLink
+}
+
 useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
   ogTitle: page.value?.seo?.title || page.value?.title,
@@ -22,37 +34,59 @@ useSeoMeta({
 
 <template>
   <UPage v-if="page">
-    <UPageHero
+    <!-- <UPageHeader class="mt-12"
       :title="page.title"
       :description="page.description"
-      orientation="horizontal"
+      orientation="vertical"
       :ui="{
         container: 'lg:flex sm:flex-row items-center',
         title: '!mx-0 text-left',
         description: '!mx-0 text-left',
         links: 'justify-start'
+        
       }"
-    >
+    > -->
+    <UPageHeader class="mt-10">
+      <div class="text-2xl text-gray-200">
+
+        {{ page.title }}
+      </div>
+      <div class="text-[16px] whitespace-pre-line">
+        {{ page.description }}
+      </div>
+
+
    
-    </UPageHero>
+    </UPageHeader>
     <UPageSection
       :ui="{
-        container: '!pt-0'
+        container: '!pt-0 mt-2'
       }"
     >
-      <MDC
-        :value="page.content"
-        unwrap="p"
-      />
-      <div class="flex flex-row justify-center items-center py-10 -space-x-8">
-        <NuxtImg
-          v-for="(image, index) in page.images"
-          :key="index"
-          :src="image.src"
-          :alt="image.alt"
-          class="rounded-lg  max-w-sm"
-        />
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div v-if="(page as any).links && (page as any).links.length > 0" class="flex flex-col gap-2">
+          <ULink
+            v-for="(linkMarkdown, index) in (page as any).links"
+            :key="index"
+            :to="extractUrl(linkMarkdown)"
+            target="_blank"
+            external
+            class="text-sm text-primary hover:text-primary/80 transition-colors"
+          >
+            {{ extractText(linkMarkdown) }}
+          </ULink>
+        </div>
+        <div class="flex flex-row justify-center lg:justify-end items-center">
+          <NuxtImg
+            v-for="(image, index) in page.images"
+            :key="index"
+            :src="image.src"
+            :alt="image.alt"
+            class="rounded-lg max-w-[70%]"
+          />
+        </div>
       </div>
+      <USeparator v-if="(page as any).links && (page as any).links.length > 0" class="mt-2" />
     </UPageSection>
   </UPage>
 </template>

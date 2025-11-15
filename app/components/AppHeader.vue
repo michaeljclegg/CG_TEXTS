@@ -4,6 +4,8 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 defineProps<{
   links: NavigationMenuItem[]
 }>()
+
+const version = ref(2)
 </script>
 
 <template>
@@ -20,6 +22,7 @@ defineProps<{
     >
       <template #list-trailing>
         <ColorModeButton />
+        <UBadge color="neutral">{{ version }}</UBadge>
       </template>
     </UNavigationMenu>
   </div>
