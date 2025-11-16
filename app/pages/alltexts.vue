@@ -19,6 +19,8 @@ const formatDate = (dateString: string) => {
   })
 }
 
+// No transformation needed - use posts directly
+
 useSeoMeta({
   title: 'AllTexts',
   description: 'List of all C&G texts sorted by date'
@@ -40,35 +42,25 @@ useSeoMeta({
         container: '!pt-0'
       }"
     >
-      <div class="space-y-6">
+      <div class="flex flex-col gap-0">
         <div
           v-for="(post, index) in posts"
           :key="index"
-          class="border-b border-default pb-6 last:border-0 last:pb-0"
+          class="flex items-center justify-between w-full py-3 border-b border-default last:border-b-0"
         >
           <ULink
             :to="post.path"
-            class="group block"
+            :title="post.description || ''"
+            class="flex-1 text-lg font-semibold text-highlighted hover:text-primary transition-colors cursor-pointer"
           >
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <div class="flex-1">
-                <h3 class="text-lg font-semibold text-highlighted group-hover:text-primary transition-colors">
-                  {{ post.title }}
-                </h3>
-                <p v-if="post.description" class="text-sm text-muted mt-1">
-                  {{ post.description }}
-                </p>
-              </div>
-              <div class="flex items-center gap-4 text-xs text-muted">
-                <span v-if="post.date">
-                  {{ formatDate(post.date) }}
-                </span>
-                <span v-if="post.minRead" class="hidden sm:inline">
-                  {{ post.minRead }} MIN READ
-                </span>
-              </div>
-            </div>
+            {{ post.title }}
           </ULink>
+          <span
+            v-if="post.date"
+            class="text-xs text-muted ms-4 shrink-0"
+          >
+            {{ formatDate(post.date) }}
+          </span>
         </div>
       </div>
     </UPageSection>

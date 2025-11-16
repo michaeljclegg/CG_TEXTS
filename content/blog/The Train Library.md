@@ -1,13 +1,14 @@
 ---
 title: The Train Library
-description: Notes 1993
+description: Notes for a proposal for the Deutsche Bahn
 date: 1993-11-21 00:00:00
 image: /blog/train_library_drawing.jpg
 minRead: 5
+toc: 'false'
 head:
   meta:
     - name: 'keywords'
-      content: 'Public Project, 1990, Train, Clegg & Guttmann'
+      content: 'Public Project, Deutsche Bahn, 1990, Train, Clegg & Guttmann'
     - name: 'robots'
       content: 'index, follow'
     - name: 'author'
