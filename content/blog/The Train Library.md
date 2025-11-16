@@ -3,7 +3,7 @@ title: The Train Library
 description: Notes for a proposal for the Deutsche Bahn
 date: 1993-11-21 00:00:00
 image: /blog/train_library_drawing.jpg
-minRead: 5
+minRead: 1
 toc: 'false'
 head:
   meta:

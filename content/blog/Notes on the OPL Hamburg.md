@@ -1,13 +1,14 @@
 ---
 title: 'Notes on the Open Public Library'
-description: 'A proposal for a public project in Hamburg, Lüneburg University 1990'
-date: '1993-12-12 00:00:00'
+description: 'A proposal for a public project in Hamburg, Lüneburg University 1993'
+date: '1993-1-1 00:00:00'
 toc: 'true'
+minRead: 7
 image: /blog/Hamburg OPL.jpg
 head:
   meta:
     - name: 'keywords'
-      content: 'Public Project, Hamburg, Lüneburg University, Clegg & Guttmann, Achim Könneke, Cantz Verlag, 1994'
+      content: 'Public Project, Hamburg, Lüneburg University, Clegg & Guttmann, Achim Könneke, Cantz Verlag, 1993'
     - name: 'author'
       content: 'Clegg & Guttmann'
     - name: 'description'
@@ -16,7 +17,7 @@ head:
       content: 'This is an OpenGraph title'
 ---
 
-* _In 1994 Clegg & Guttmann realized The Open Public Library in Hamburg as part of the city's Art in Public Space project. They erected library cabinets in three different parts of the city and offered them to neighborhoods for active use_ 
+* _In 1993 Clegg & Guttmann realized The Open Public Library in Hamburg as part of the city's Art in Public Space project. They erected library cabinets in three different parts of the city and offered them to neighborhoods for active use_ 
 
  
 ##  Introduction
