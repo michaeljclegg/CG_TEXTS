@@ -94,7 +94,7 @@ const scrollToTop = () => {
           <NuxtImg
             :src="page.image"
             :alt="page.title"
-            class="rounded-lg w-full object-contain"
+            class="rounded-lg w-full max-h-[35vh] object-contain mx-auto"
           />
           <h1 class="text-4xl text-center font-medium max-w-3xl mx-auto mt-4">
             {{ page.title }}

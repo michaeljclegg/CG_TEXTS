@@ -1,7 +1,8 @@
 ---
-title: 100 Years to the 1st Zionist Congress in Base
-description: Catalogue text for the exhibition at the Basel Kunstverein 1998
+title: 100 Years to the 1st Zionist Congress in Basel
+description: Press release for the show at the Basel Kunstverein 1998
 date: 1998-01-01 00:00:00
+image: /blog/Installation the First Zionist Congress in Basel 1987 Basel Kunsthalle.jpg
 minRead: 2
 toc: 'false'
 head:
@@ -20,8 +21,8 @@ head:
       content: 'This is an OpenGraph title'
 ---
 
-![100 years zionist congress](/images/berlin_salon.jpg)
-* _120 Years to the first Zionist Congress in Basel, Kunstmuseum Basel (Photo credit: Gina Folly Courtesy Kunstmuseum Basel)_{style="; font-size: 12px; color: gray; line-height: 8px; "}
+
+ _100 Years to the first Zionist Congress in Basel, Kunstmuseum Basel (Photo credit: Gina Folly Courtesy Kunstmuseum Basel)_{style="; font-size: 12px; color: gray; line-height: 8px; "}
 
 A Hundred years ago young Jews from England, France, Germany, Austria, Russia and Poland, met in the Casino Hotel in Basel. The purpose of the meeting was to discuss a new solution to the rising tide of the of new European anti-semitism, the proposal for the discussion was of a secular foundation of a Jewish State.
 The meeting was a success. The participants left with a feeling that they opened a new  of chapter of Jewish history. Indeed, they were right. A process has began that culminated  51 years later, in the foundation of the state of Israel.
