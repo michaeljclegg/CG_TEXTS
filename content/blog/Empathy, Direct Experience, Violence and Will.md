@@ -4,7 +4,7 @@ description: 'Text for show "Modernismo Italiano" at Lia Rumma Gallery, Milan 20
 date: '2018-01-01 00:00:00'
 toc: 'true'
 minRead: 25
-image: /blog/Italian Modernismo.jpg
+image: /blog/Luigi-Russolo-Cacophonous-Italian-Modernismo.jpg
 head:
   meta:
     - name: 'keywords'
@@ -20,10 +20,7 @@ head:
     - name: 'og:title'
       content: 'This is an OpenGraph title'
 ---
-
-## The Early Phase of Italian Modernism (1880-1920)
-
----
+_The Early Phase of Italian Modernism (1880-1920)_{style="; font-size: 24px; color: gray; line-height: 8px; "}
 
 ## Part I: General Remarks on the Proposed Exhibition
 

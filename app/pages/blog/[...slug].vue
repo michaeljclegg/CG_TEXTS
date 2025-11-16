@@ -56,7 +56,17 @@ const pageWithBody = computed(() => page.value as typeof page.value & {
     toc?: {
       links?: Array<{ id: string; text: string; depth: number; children?: any[] }>
     }
-  }
+  },
+  toc?: boolean | string
+})
+
+// Check if TOC should be displayed (frontmatter toc field must be true or 'true')
+const shouldShowToc = computed(() => {
+  const tocValue = page.value?.toc
+  if (tocValue === false || tocValue === 'false') return false
+  if (tocValue === true || tocValue === 'true') return true
+  // Default to showing if toc field is not set (backward compatibility)
+  return true
 })
 
 // Scroll to top function
@@ -129,17 +139,20 @@ const scrollToTop = () => {
           </div>
           <UContentSurround :surround />
         </UPageBody>
-        <template v-if="pageWithBody?.body?.toc?.links?.length" #right>
-          <UContentToc  
-            title=" " 
-           
-          color="primary"
-            :links="pageWithBody.body.toc.links"
-            :ui="{
-              link: 'text-xs',
-              linkText: 'text-xs'
-            }"
-          >
+        <template v-if="shouldShowToc && pageWithBody?.body?.toc?.links?.length" #right>
+          <div class="w-[130%]">
+            <UContentToc  
+              title=" " 
+             
+            color="primary"
+              :links="pageWithBody.body.toc.links"
+              :ui="{
+                link: 'text-xs',
+                linkText: 'text-xs',
+                root: 'overflow-hidden',
+                content: 'overflow-hidden'
+              }"
+            >
             <template #top>
               <button
                 @click="scrollToTop"
@@ -158,6 +171,7 @@ const scrollToTop = () => {
               </a>
             </template>
           </UContentToc>
+          </div>
         </template>
       </UPage>
     </UContainer>
